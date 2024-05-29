@@ -11,6 +11,15 @@ const hoursField = document.querySelector('[data-hours]');
 const minutesField = document.querySelector('[data-minutes]');
 const secondsField = document.querySelector('[data-seconds]');
 
+const izitoastOptions = {
+  position: 'topRight',
+  transitionIn: 'fadeInDown',
+  iconUrl: './img/bi_x-octagon.svg',
+  iconColor: 'white',
+  message: 'Warning!',
+  color: 'red',
+};
+
 let userSelectedDate;
 let timeDifference;
 
@@ -33,13 +42,9 @@ const handleClose = () => {
   timeDifference = userSelectedDate - Date.now();
   if (timeDifference <= 0) {
     iziToast.show({
-      position:	'topRight',
-      transitionIn: 'fadeInDown',
-      iconUrl: './img/bi_x-octagon.svg',
-      iconColor: 'white',
+      ...izitoastOptions,
       message: 'Please choose a date in the future',
     });
-    // console.log(iziToast.show);
     return;
   }
 
@@ -84,21 +89,17 @@ const updateDisplay = ms => {
 const startCountdown = () => {
   startButton.disabled = true;
   datetimePicker.disabled = true;
-  console.log(datetimePicker.disabled);
   let countdownInterval = setInterval(() => {
     timeDifference = userSelectedDate - Date.now();
     if (timeDifference <= 0) {
       clearInterval(countdownInterval);
-      startButton.disabled = false;
       // alert('Stop!');
       iziToast.show({
-        position:	'topRight',
-        transitionIn: 'fadeInDown',
-        iconUrl: './img/bi_x-octagon.svg',
-        iconColor: 'white',
+        ...izitoastOptions,
         message: 'Stop',
       });
       updateDisplay(0);
+      datetimePicker.disabled = false;
     }
     const timeArray = convertMs(timeDifference);
     updateDisplay(timeDifference);

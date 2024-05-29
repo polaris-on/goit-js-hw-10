@@ -8,9 +8,9 @@
 @import url('./header.css');
 
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 1.5;
   font-weight: 400;
 
   color: #242424;
@@ -21,6 +21,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --trans: all 250ms ease-in-out;
 }
 
 * {
@@ -45,11 +47,12 @@
   flex-direction: column;
   gap: 20px;
 }
-.task-header{
+.task-header {
   margin-bottom: 24px;
 }
 
 /* Timer */
+
 #datetime-picker {
   display: inline-block;
   margin-bottom: 32px;
@@ -121,14 +124,92 @@
   line-height: 150%;
   text-transform: uppercase;
 }
-.iziToast-capsule > div {
-  background: #ef4040 !important;
-
-}
-.iziToast>.iziToast-body p.iziToast-message {
+.iziToast > .iziToast-body p.iziToast-message {
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
   letter-spacing: 0.03em;
   color: #fff;
+}
+.iziToast-wrapper .iziToast.iziToast-color-green {
+  background: rgb(34, 161, 29);
+  border-color: rgba(166, 239, 184, 1);
+}
+.iziToast-wrapper .iziToast.iziToast-color-red {
+  background: rgb(191, 20, 31);
+  border-color: rgba(255, 175, 180, 1);
+}
+
+/* Snackbar */
+
+.form {
+  max-width: 360px;
+}
+input[type="number"] {
+  width: 100%;
+  height: 40px;
+  margin-top: 8px;
+  padding: 8px 16px;
+  
+  border: 1px solid #808080;
+  border-radius: 4px;
+
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+
+  transition: var(--trans);
+}
+label {
+  font: inherit;
+}
+fieldset {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 74px;
+  padding: 24px 48px 8px 48px;
+  margin-bottom: 24px;
+  border-radius: 4px;
+  border: 1px solid #808080;
+
+  transition: var(--trans);
+}
+input[type="number"]:hover,
+input[type="number"]:focus,
+input[type="number"]:active,
+fieldset:hover,
+fieldset:focus,
+fieldset:active {
+  border: 1px solid #000;
+}
+fieldset label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+input[type="radio"] {
+  width: 20px;
+  height: 20px;
+}
+button[type="submit"] {
+  width: 100%;
+  min-height: 40px;
+  border-radius: 8px;
+  padding: 8px 16px;
+  background: #4e75ff;
+  border: 0px solid transparent;
+  
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: #fff;
+
+  transition: var(--trans);
+}
+button[type="submit"]:hover {
+  background: #6c8cff;
 }

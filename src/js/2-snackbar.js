@@ -1,10 +1,12 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+import iconСheckСircle from '/img/check-circle.svg';
+import iconXOctagon from '/img/bi_x-octagon.svg';
 
 const izitoastOptions = {
   position: 'topRight',
   transitionIn: 'fadeInDown',
-  iconUrl: '../img/check-circle.svg',
+  iconUrl: iconСheckСircle,
   // icon: 'check-circle',
   iconColor: 'white',
   message: 'Warning!',

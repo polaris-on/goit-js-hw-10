@@ -1,5 +1,7 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
+import iconСheckСircle from '/img/check-circle.svg';
+import iconXOctagon from '/img/bi_x-octagon.svg';
 
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
@@ -14,7 +16,7 @@ const secondsField = document.querySelector('[data-seconds]');
 const izitoastOptions = {
   position: 'topRight',
   transitionIn: 'fadeInDown',
-  iconUrl: '../img/bi_x-octagon.svg',
+  iconUrl: iconСheckСircle,
   iconColor: 'white',
   message: 'Warning!',
   color: 'red',
@@ -96,12 +98,13 @@ const startCountdown = () => {
       // alert('Stop!');
       iziToast.show({
         ...izitoastOptions,
+        icon: iconXOctagon,
         message: 'Stop',
       });
       updateDisplay(0);
       datetimePicker.disabled = false;
     }
-    const timeArray = convertMs(timeDifference);
+    // const timeArray = convertMs(timeDifference);
     updateDisplay(timeDifference);
   }, 1000);
 };

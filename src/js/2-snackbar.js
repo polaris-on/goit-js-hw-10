@@ -4,7 +4,7 @@ import 'izitoast/dist/css/iziToast.min.css';
 const izitoastOptions = {
   position: 'topRight',
   transitionIn: 'fadeInDown',
-  iconUrl: './img/check-circle.svg',
+  iconUrl: '../img/check-circle.svg',
   // icon: 'check-circle',
   iconColor: 'white',
   message: 'Warning!',
@@ -22,7 +22,7 @@ const handleSubmit = event => {
   if (delay <= 0) {
     iziToast.show({
       ...izitoastOptions,
-      iconUrl: './img/bi_x-octagon.svg',
+      iconUrl: '../img/bi_x-octagon.svg',
       message: 'Number must be greater than zero',
     });
     return;
@@ -52,7 +52,7 @@ const handleSubmit = event => {
     .catch(error => {
       iziToast.show({
         ...izitoastOptions,
-        iconUrl: './img/bi_x-octagon.svg',
+        iconUrl: '../img/bi_x-octagon.svg',
         message: error,
         timeout: 5000,
       });

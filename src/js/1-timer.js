@@ -14,7 +14,7 @@ const secondsField = document.querySelector('[data-seconds]');
 const izitoastOptions = {
   position: 'topRight',
   transitionIn: 'fadeInDown',
-  iconUrl: './img/bi_x-octagon.svg',
+  iconUrl: '../img/bi_x-octagon.svg',
   iconColor: 'white',
   message: 'Warning!',
   color: 'red',
